@@ -1,0 +1,52 @@
+def evaluate_student(name, marks, attendance, assignment, behavior):
+    print("\n--- Student Record ---")
+    print("Name:", name)
+    print("Marks:", marks)
+    print("Attendance:", attendance)
+    print("Assignment:", assignment)
+    print("Behavior:", behavior)
+
+    print("\n--- Expert System Output ---")
+
+    # Performance rule
+    if marks >= 75 and attendance >= 75:
+        print("Performance: Excellent")
+    elif marks >= 50 and attendance >= 75:
+        print("Performance: Good")
+    else:
+        print("Performance: Needs Improvement")
+
+    # Assignment rule
+    if assignment < 5:
+        print("Suggestion: Improve assignment work")
+
+    # Attendance rule
+    if attendance < 75:
+        print("Warning: Low attendance")
+
+    # Behavior rule
+    if behavior == "poor":
+        print("Suggestion: Improve behavior")
+    elif behavior == "good":
+        print("Remark: Positive attitude")
+
+    # Combined rule
+    if marks < 50 and attendance < 75:
+        print("Alert: High risk of failure")
+
+    # Topper rule
+    if marks >= 90 and assignment >= 8 and behavior == "good":
+        print("Remark: Top Performer")
+
+
+print("=== Expert System: Student Evaluation ===")
+
+# Input facts
+name = input("Enter student name: ")
+marks = int(input("Enter marks: "))
+attendance = int(input("Enter attendance (%): "))
+assignment = int(input("Assignment score (out of 10): "))
+behavior = input("Behavior (good/average/poor): ").lower()
+
+# Function call
+evaluate_student(name, marks, attendance, assignment, behavior)

@@ -1,0 +1,140 @@
+def greet():
+    print("=== College Enquiry Chatbot ===")
+    name = input("Enter your name: ")
+    print("Hello", name, "!")
+    print("\nYou can ask about: courses, admission, fees, hostel, placement, location, contact")
+    print("Type 'help' to see options again or 'exit' to quit\n")
+
+
+def show_help():
+    print("\nAvailable queries:")
+    print("- courses / programs")
+    print("- admission")
+    print("- fees / fee structure")
+    print("- hostel")
+    print("- placement")
+    print("- location")
+    print("- contact\n")
+
+
+def get_response(user):
+    if "course" in user or "program" in user:
+        print("Bot: We offer B.Tech, BCA, BBA, and MBA programs.")
+
+    elif "admission" in user:
+        print("Bot: Admissions are based on entrance exams and merit.")
+
+    elif "fee" in user:
+        print("Bot: Fees range from ₹50,000 to ₹1,50,000 per year.")
+
+    elif "hostel" in user:
+        print("Bot: Hostel facilities are available for students.")
+
+    elif "placement" in user or "job" in user:
+        print("Bot: We have good placement records with top companies.")
+
+    elif "location" in user or "where" in user:
+        print("Bot: The college is located in Pune.")
+
+    elif "contact" in user or "phone" in user:
+        print("Bot: Contact us at 9876543210.")
+
+    elif "help" in user:
+        show_help()
+
+    elif "thanks" in user:
+        print("Bot: You're welcome!")
+
+    else:
+        print("Bot: Sorry, I didn't understand. Type 'help' to see available options.")
+
+
+def chat():
+    while True:
+        user = input("You: ").lower().strip()
+
+        if user == "exit":
+            print("Bot: Thank you for visiting our college!")
+            break
+
+        get_response(user)
+
+
+# Main program
+greet()
+chat()
+
+
+
+
+---------------------------------------------------
+
+def greet():
+    print("=== Customer Interaction Chatbot ===")
+    name = input("Enter your name: ")
+    print("Hello", name, "!")
+    print("\nYou can ask about: order, delivery, return, refund, payment, cancel, complaint, contact")
+    print("Type 'help' to see options again or 'exit' to quit\n")
+
+
+def show_help():
+    print("\nAvailable queries:")
+    print("- order / order status")
+    print("- delivery / shipping")
+    print("- return")
+    print("- refund")
+    print("- payment")
+    print("- cancel / cancellation")
+    print("- complaint / issue")
+    print("- contact / support\n")
+
+
+def get_response(user):
+    if "order" in user or "status" in user:
+        print("Bot: You can track your order using your order ID.")
+
+    elif "delivery" in user or "shipping" in user:
+        print("Bot: Delivery usually takes 3 to 5 working days.")
+
+    elif "return" in user:
+        print("Bot: You can return a product within 7 days of delivery.")
+
+    elif "refund" in user:
+        print("Bot: Refunds are usually processed within 5 to 7 working days.")
+
+    elif "payment" in user or "pay" in user:
+        print("Bot: We accept UPI, debit card, credit card, and net banking.")
+
+    elif "cancel" in user or "cancellation" in user:
+        print("Bot: You can cancel your order before it is shipped.")
+
+    elif "complaint" in user or "issue" in user or "problem" in user:
+        print("Bot: Please describe your issue. Our support team will contact you soon.")
+
+    elif "contact" in user or "support" in user or "phone" in user:
+        print("Bot: You can contact customer support at 9876543210.")
+
+    elif "help" in user:
+        show_help()
+
+    elif "thanks" in user or "thank you" in user:
+        print("Bot: You're welcome! Happy to help.")
+
+    else:
+        print("Bot: Sorry, I didn't understand. Type 'help' to see available options.")
+
+
+def chat():
+    while True:
+        user = input("You: ").lower().strip()
+
+        if user == "exit":
+            print("Bot: Thank you for contacting customer support!")
+            break
+
+        get_response(user)
+
+
+# Main program
+greet()
+chat()
