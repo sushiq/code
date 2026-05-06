@@ -1,0 +1,44 @@
+# Kruskal's Algorithm
+
+def find(parent, node):
+    if parent[node] == node:
+        return node
+    return find(parent, parent[node])
+
+
+def union(parent, u, v):
+    root_u = find(parent, u)
+    root_v = find(parent, v)
+
+    parent[root_v] = root_u
+
+
+def kruskal(edges, nodes):
+    edges.sort(key=lambda x: x[2])
+
+    parent = {node: node for node in nodes}
+
+    mst = []
+    cost = 0
+
+    for u, v, w in edges:
+        if find(parent, u) != find(parent, v):
+            union(parent, u, v)
+            mst.append((u, v, w))
+            cost += w
+
+    print("MST:", mst)
+    print("Total Cost:", cost)
+
+
+edges = [
+    ('A', 'B', 2),
+    ('A', 'C', 3),
+    ('B', 'C', 1),
+    ('B', 'D', 4),
+    ('C', 'D', 5)
+]
+
+nodes = ['A', 'B', 'C', 'D']
+
+kruskal(edges, nodes)
