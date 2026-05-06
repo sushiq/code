@@ -1,5 +1,3 @@
-
-
 def is_safe(node, graph, assigned_colors, color):
     for neighbour in graph[node]:
         if assigned_colors[neighbour] == color:
@@ -9,32 +7,38 @@ def is_safe(node, graph, assigned_colors, color):
 
 def graph_coloring(node, graph, assigned_colors, colors):
     if node == len(graph):
-        print("Solution:")
-        for i in range(len(assigned_colors)):
-            print("Node", i, ":", assigned_colors[i])
         return True
 
     for color in colors:
         if is_safe(node, graph, assigned_colors, color):
             assigned_colors[node] = color
 
-            if graph_coloring(node+1, graph, assigned_colors, colors):
+            if graph_coloring(node + 1, graph, assigned_colors, colors):
                 return True
 
-            assigned_colors[node] = None   # Backtrack
+            assigned_colors[node] = None
 
     return False
 
 
 graph = {
-    0: [1, 2, 3],     
-    1: [0, 2],        
-    2: [0, 1, 3],     
-    3: [0, 2]        
+    0: [1, 2, 3],
+    1: [0, 2],
+    2: [0, 1, 3],
+    3: [0, 2]
 }
 
-colors = ["Red", "Green", "Blue"]
+all_colors = ["Red", "Green", "Blue", "Yellow"]
 
-assigned_colors = [None] * len(graph)
+for m in range(1, len(graph) + 1):
+    colors = all_colors[:m]
+    assigned_colors = [None] * len(graph)
 
-graph_coloring(0,graph, assigned_colors, colors)
+    if graph_coloring(0, graph, assigned_colors, colors):
+        print("Chromatic Number:", m)
+        print("Coloring Solution:")
+
+        for i in range(len(assigned_colors)):
+            print("Node", i, ":", assigned_colors[i])
+
+        break
